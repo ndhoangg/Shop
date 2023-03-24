@@ -1,0 +1,62 @@
+﻿<Properties StartupConfiguration="{BCA34C06-9506-425E-8130-C61795F1F688}|test3">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.test3 PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DAL/Repositories/AccountRepository.cs">
+    <Files>
+      <File FileName="test3/Program.cs" />
+      <File FileName="test3/WeatherForecast.cs" />
+      <File FileName="test3/appsettings.json" />
+      <File FileName="test3/Controllers/WeatherForecastController.cs" />
+      <File FileName="test3/Properties/launchSettings.json" />
+      <File FileName="DAL/Repositories/Interface/IMemberRepository.cs" />
+      <File FileName="DAL/Repositories/Interface/IRepositoryBase.cs" />
+      <File FileName="DAL/Repositories/Interface/IUnitOfWork.cs" />
+      <File FileName="DAL/Repositories/UnitOfWork.cs" />
+      <File FileName="DAL/Repositories/RepositoryBase.cs" />
+      <File FileName="DAL/Repositories/MemberRepository.cs" />
+      <File FileName="DTO/Entity/MyDbContext.cs" />
+      <File FileName="../../../../usr/local/share/dotnet/sdk/7.0.202/Microsoft.Common.CurrentVersion.targets" />
+      <File FileName="DTO/Entity/Category.cs" />
+      <File FileName="DTO/Entity/OrderDetail.cs" />
+      <File FileName="DTO/Entity/Product.cs" />
+      <File FileName="DTO/Entity/Cart.cs" />
+      <File FileName="DTO/Entity/Order.cs" />
+      <File FileName="DTO/Entity/Review.cs" />
+      <File FileName="DTO/Entity/User.cs" />
+      <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.cs" />
+      <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.Designer.cs" />
+      <File FileName="DTO/Models/SignUpModel.cs" />
+      <File FileName="DAL/Repositories/Interface/IAccountRepository.cs" />
+      <File FileName="DAL/Repositories/AccountRepository.cs" Line="43" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="test3" expanded="True">
+            <Node name="BAL" expanded="True" />
+            <Node name="DAL" expanded="True">
+              <Node name="Repositories" expanded="True">
+                <Node name="Interface" expanded="True" />
+                <Node name="AccountRepository.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="DTO" expanded="True">
+              <Node name="Entity" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+            <Node name="test3" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
