@@ -1,5 +1,7 @@
 ﻿using System;
 using DAL.Interface;
+using DAL.Repositories;
+using DAL.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL
@@ -7,8 +9,13 @@ namespace DAL
 	public class UnitOfWork : IUnitOfWork
 	{
         private readonly DbContext _context;
-        private IMemberRepository? _memberRepository;
-      
+        private IProductRepository _productRepository;
+        private ICategoryRepository _categoryRepository;
+        private IOrderRepository _orderRepository;
+        private IOrderDetailRepository _orderDetailRepository;
+        private ICartRepository _cartRepository;
+
+
         public UnitOfWork(DbContext context)
         {
             _context = context;
@@ -17,17 +24,68 @@ namespace DAL
 
 
 
-        public IMemberRepository MemberRepository
+        public IProductRepository ProductRepository
         {
             get
             {
-                if (_memberRepository == null)
+                if (_productRepository == null)
                 {
-                    _memberRepository = new MemberRepository(_context);
+                    _productRepository = new ProductRepository(_context);
                 }
-                return _memberRepository;
+                return _productRepository;
             }
         }
+
+        public IOrderRepository OrderRepository
+        {
+            get
+            {
+                if (_orderRepository == null)
+                {
+                    _orderRepository = new OrderRepository(_context);
+                }
+                return _orderRepository;
+            }
+        }
+
+        public IOrderDetailRepository OrderDetailRepository
+        {
+            get
+            {
+                if (_orderDetailRepository == null)
+                {
+                    _orderDetailRepository = new OrderDetailRepository(_context);
+                }
+                return _orderDetailRepository;
+            }
+        }
+
+        public ICartRepository CartRepository
+        {
+            get
+            {
+                if (_cartRepository == null)
+                {
+                    _cartRepository = new CartRepository(_context);
+                }
+                return _cartRepository;
+            }
+        }
+
+        public ICategoryRepository CategoryRepository
+        {
+            get
+            {
+                if (_categoryRepository == null)
+                {
+                    _categoryRepository = new CategoryRepository(_context);
+                }
+                return _categoryRepository;
+            }
+        }
+
+
+
         public void SaveChanges()
         {
             _context.SaveChanges();

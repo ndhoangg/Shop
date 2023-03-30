@@ -9,13 +9,13 @@ namespace DTO.Entity
 	{
 		[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid CategoryId { get; set; }
 
 		[Required]
 		[MaxLength(255)]
 		public string? Name { get; set; }
 
-		public virtual ICollection<Product>? Products { get; set; }
+		public virtual IEnumerable<Product>? Products { get; set; }
 
 	}
 }

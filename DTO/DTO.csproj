@@ -9,10 +9,24 @@
   <ItemGroup>
     <None Remove="Data\" />
     <None Remove="Models\" />
+    <None Remove="Models\Request\" />
+    <None Remove="Models\Request\Email\" />
+    <None Remove="Models\Request\Product\" />
+    <None Remove="Models\Request\Cart\" />
+    <None Remove="Models\Request\Category\" />
+    <None Remove="Models\Request\Authentication\" />
+    <None Remove="Models\Response\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Models\Request\Email\" />
+    <Folder Include="Models\Request\Product\" />
+    <Folder Include="Models\Request\Cart\" />
+    <Folder Include="Models\Request\Category\" />
+    <Folder Include="Models\Request\Authentication\" />
+    <Folder Include="Models\Response\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
@@ -23,5 +37,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.15" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.15" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
   </ItemGroup>
 </Project>

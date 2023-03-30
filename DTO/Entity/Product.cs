@@ -9,7 +9,7 @@ namespace DTO.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid ProductId { get; set; }
 
         [Required]
         [MaxLength(255)]
@@ -27,13 +27,13 @@ namespace DTO.Entity
 
         public double Rating { get; set; }
 
-        public virtual ICollection<Category>? Categories { get; set; }
+        public virtual IEnumerable<Category>? Categories { get; set; }
 
-        public virtual ICollection<OrderDetail>? OrderDetails { get; set; }
+        public virtual IEnumerable<OrderDetail>? OrderDetails { get; set; }
 
-        public virtual ICollection<Review>? Reviews { get; set; }
+        public virtual IEnumerable<Review>? Reviews { get; set; }
 
-        public virtual ICollection<Cart>? Carts { get; set; }
+        public virtual IEnumerable<Cart>? Carts { get; set; }
 
 
 

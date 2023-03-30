@@ -9,9 +9,11 @@ namespace DTO.Entity
 	{
 		[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid OrderId { get; set; }
 
 		public DateTime OrderDate { get; set; }
+
+		public string Address { get; set; } = null!;
 
 		public string? Status { get; set; }
 
@@ -19,7 +21,7 @@ namespace DTO.Entity
 
         public virtual User? User { get; set; }
 
-		public virtual ICollection<OrderDetail>? OrderDetails { get; set; }
+		public virtual IEnumerable<OrderDetail>? OrderDetails { get; set; }
 
 		
 

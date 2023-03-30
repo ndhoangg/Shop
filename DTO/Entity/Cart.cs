@@ -9,11 +9,11 @@ namespace DTO.Entity
 	{
 		[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid CardId { get; set; }
 
 		public int Quantity { get; set; }
 
-		public virtual Product? Product { get; set; }
+        public virtual IEnumerable<Product>? Products { get; set; }
 
 		public virtual User? User { get; set; }
 

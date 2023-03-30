@@ -9,10 +9,10 @@ namespace DTO.Entity
 	{
 		[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid ReviewId { get; set; }
 
 		[Required]
-		[MaxLength(100)]
+		[MaxLength(255)]
 		public string? Content { get; set; }
 
 		public virtual User? User { get; set; }

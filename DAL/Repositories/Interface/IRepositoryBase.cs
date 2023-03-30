@@ -7,19 +7,23 @@ namespace DAL.Interface
 	{
         void Add(TEntity objModel);
 
+        Task AddAsync(TEntity objModel);
+
         void AddRange(IEnumerable<TEntity> objModel);
+
+        Task AddRangeAsync(IEnumerable<TEntity> objModel);
 
         TEntity GetId(int id);
 
-       // Task<TEntity> GetIdAsync(int id);
+        Task<TEntity> GetIdAsync(int id);
 
         TEntity Get(Expression<Func<TEntity, bool>> predicate);
 
-        //Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
 
         IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate);
 
-        //Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
 
         IEnumerable<TEntity> GetAll();
 

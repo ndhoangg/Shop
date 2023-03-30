@@ -30,20 +30,29 @@ namespace DAL
             return _context.Set<TEntity>().Find(id)!;
         }
 
-        //public async Task<TEntity> GetIdAsync(int id)
-        //{
-        //    return await _context.Set<TEntity>().FindAsync(id);
-        //}
+        public async Task<TEntity> GetIdAsync(int id)
+        {
+            var entity = await _context.Set<TEntity>().FindAsync(id);
+            if(entity == null) {
+                return null!;
+            }
+            return entity;
+        }
 
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
             return _context.Set<TEntity>().FirstOrDefault(predicate)!;
         }
 
-        //public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
-        //{
-        //    return await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
-        //}
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            var entity = await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
+            if (entity == null)
+            {
+                return null!;
+            }
+            return entity;
+        }
 
         public IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate)
         {
@@ -88,6 +97,15 @@ namespace DAL
             _context.SaveChanges();
         }
 
+        public async Task AddAsync(TEntity objModel)
+        {
+            await _context.Set<TEntity>().AddAsync(objModel);
+        }
+
+        public async Task AddRangeAsync(IEnumerable<TEntity> objModel)
+        {
+            await _context.Set<TEntity>().AddRangeAsync(objModel);
+        }
     }
 }
 

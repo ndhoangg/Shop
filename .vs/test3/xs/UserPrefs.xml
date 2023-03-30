@@ -1,24 +1,17 @@
 ﻿<Properties StartupConfiguration="{BCA34C06-9506-425E-8130-C61795F1F688}|test3">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.test3 PreferredExecutionTarget="/Applications/Brave Browser.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DAL/Repositories/AccountRepository.cs">
+  <MonoDevelop.Ide.ItemProperties.Shop PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DTO/Models/Response/Category/EditCategoryResponse.cs">
     <Files>
       <File FileName="test3/Program.cs" />
       <File FileName="test3/WeatherForecast.cs" />
       <File FileName="test3/appsettings.json" />
       <File FileName="test3/Controllers/WeatherForecastController.cs" />
       <File FileName="test3/Properties/launchSettings.json" />
-      <File FileName="DAL/Repositories/Interface/IMemberRepository.cs" />
       <File FileName="DAL/Repositories/Interface/IRepositoryBase.cs" />
       <File FileName="DAL/Repositories/Interface/IUnitOfWork.cs" />
       <File FileName="DAL/Repositories/UnitOfWork.cs" />
       <File FileName="DAL/Repositories/RepositoryBase.cs" />
-      <File FileName="DAL/Repositories/MemberRepository.cs" />
       <File FileName="DTO/Entity/MyDbContext.cs" />
       <File FileName="../../../../usr/local/share/dotnet/sdk/7.0.202/Microsoft.Common.CurrentVersion.targets" />
       <File FileName="DTO/Entity/Category.cs" />
@@ -30,33 +23,78 @@
       <File FileName="DTO/Entity/User.cs" />
       <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.cs" />
       <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.Designer.cs" />
-      <File FileName="DTO/Models/SignUpModel.cs" />
-      <File FileName="DAL/Repositories/Interface/IAccountRepository.cs" />
-      <File FileName="DAL/Repositories/AccountRepository.cs" Line="43" Column="1" />
+      <File FileName="test3/Controllers/AccountsController.cs" />
+      <File FileName="BAL/MemberService.cs" />
+      <File FileName="DTO/Migrations/20230326100759_RolesSeed.cs" />
+      <File FileName="DTO/Migrations/20230326100759_RolesSeed.Designer.cs" />
+      <File FileName="BAL/Interfaces/IAccountService.cs" />
+      <File FileName="BAL/AccountService.cs" />
+      <File FileName="BAL/Interfaces/IMemberService.cs" />
+      <File FileName="BAL/Interfaces/IEmailService.cs" />
+      <File FileName="BAL/EmailService.cs" />
+      <File FileName="DTO/Models/Request/Email/Message.cs" />
+      <File FileName="DTO/Models/Request/Email/EmailConfiguration.cs" />
+      <File FileName="DTO/Models/Request/Email/ConfirmEmailRequest.cs" />
+      <File FileName="DTO/Migrations/20230329015003_initialMigration2.cs" />
+      <File FileName="DAL/Repositories/Interface/IProductRepository.cs" />
+      <File FileName="DAL/Repositories/Interface/ICartRepository.cs" />
+      <File FileName="DAL/Repositories/Interface/ICategoryRepository.cs" />
+      <File FileName="DAL/Repositories/Interface/IOrder.cs" />
+      <File FileName="DAL/Repositories/Interface/IOrderDetailRepository.cs" />
+      <File FileName="DAL/Repositories/ProductRepository.cs" />
+      <File FileName="DAL/Repositories/CartRepository.cs" />
+      <File FileName="DAL/Repositories/CategoryRepository.cs" />
+      <File FileName="DAL/Repositories/OrderDetailRepository.cs" />
+      <File FileName="DAL/Repositories/OrderRepository.cs" />
+      <File FileName="DTO/Models/Request/Product/CreateProductRequest.cs" />
+      <File FileName="DTO/Models/Request/Product/UpdateProductRequest.cs" />
+      <File FileName="DTO/Models/Request/Category/CreateCategoryRequest.cs" />
+      <File FileName="DTO/Models/Request/Category/UpdateCategoryRequest.cs" />
+      <File FileName="DTO/Models/Request/Cart/AddCartItemRequest.cs" />
+      <File FileName="DTO/Models/Request/Cart/UpdateCartItem.cs" />
+      <File FileName="DTO/Models/Response/Cart/UpdateCartItemResponse.cs" />
+      <File FileName="DTO/Models/Response/Cart/DeleteCartItemResponse.cs" />
+      <File FileName="BAL/Interfaces/IProductService.cs" />
+      <File FileName="BAL/ProductService.cs" />
+      <File FileName="DTO/Models/Response/Category/EditCategoryResponse.cs" Line="11" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="test3" expanded="True">
-            <Node name="BAL" expanded="True" />
+            <Node name="BAL" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+            </Node>
             <Node name="DAL" expanded="True">
               <Node name="Repositories" expanded="True">
                 <Node name="Interface" expanded="True" />
-                <Node name="AccountRepository.cs" selected="True" />
               </Node>
             </Node>
             <Node name="DTO" expanded="True">
               <Node name="Entity" expanded="True" />
-              <Node name="Migrations" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Request" expanded="True">
+                  <Node name="Cart" expanded="True" />
+                  <Node name="Category" expanded="True" />
+                </Node>
+                <Node name="Response" expanded="True">
+                  <Node name="Cart" expanded="True" />
+                  <Node name="Category" expanded="True">
+                    <Node name="EditCategoryResponse.cs" selected="True" />
+                  </Node>
+                  <Node name="Product" expanded="True" />
+                </Node>
+              </Node>
             </Node>
-            <Node name="test3" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Properties" expanded="True" />
-            </Node>
+            <Node name="Shop" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>

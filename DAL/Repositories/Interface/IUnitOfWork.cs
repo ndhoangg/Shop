@@ -1,11 +1,21 @@
 ﻿using System;
+using DAL.Repositories.Interface;
+
 namespace DAL.Interface
 {
 	public interface IUnitOfWork
 	{
-		IMemberRepository MemberRepository { get; }
+        IProductRepository ProductRepository { get; }
 
-		void SaveChanges();
+        ICategoryRepository CategoryRepository { get; }
+
+        IOrderDetailRepository OrderDetailRepository { get; }
+
+        IOrderRepository OrderRepository { get; }
+
+        ICartRepository CartRepository { get; }
+
+        void SaveChanges();
 	}
 }
 

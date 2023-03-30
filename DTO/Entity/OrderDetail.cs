@@ -9,7 +9,7 @@ namespace DTO.Entity
 	{
 		[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid OrderDetailId { get; set; }
 
 		public double price { get; set; }
 
