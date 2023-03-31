@@ -20,6 +20,7 @@ namespace DAL
         {
             _context = context;
            // MemberRepository = memberRepository;
+
         }
 
 

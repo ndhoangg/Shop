@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace DTO.Models
+namespace DTO.Models.Request.Authentication
 {
-	public class SignInModel
+	public class SignInRequest
 	{
 		[Required]
 		public string Email { get; set; } = null!;

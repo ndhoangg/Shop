@@ -1,7 +1,7 @@
 ﻿using System;
 namespace DTO.Models.Respone.Authentication
 {
-	public class SignUpRespone
+	public class SignUpResponse
 	{
         public string? Message { get; set; }
         public bool IsSuccess { get; set; }

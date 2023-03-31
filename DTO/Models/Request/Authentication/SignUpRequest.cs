@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace DTO.Models
+namespace DTO.Models.Request.Authentication
 {
-	public class SignUpModel
+	public class SignUpRequest
 	{
         [Required]
         public string FirstName { get; set; } = null!;
@@ -14,8 +14,8 @@ namespace DTO.Models
         //[Required]
         //public string Address { get; set; } = null!;
 
-        //[Required]
-        //public string Phone { get; set; } = null!;
+        [Required]
+        public string PhoneNumber { get; set; } = null!;
 
         [Required]
         public string Email { get; set; } = null!;

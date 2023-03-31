@@ -1,12 +1,10 @@
 ﻿<Properties StartupConfiguration="{BCA34C06-9506-425E-8130-C61795F1F688}|test3">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Shop PreferredExecutionTarget="/Applications/Brave Browser.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DTO/Models/Response/Category/EditCategoryResponse.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BAL/AccountService.cs">
     <Files>
       <File FileName="test3/Program.cs" />
       <File FileName="test3/WeatherForecast.cs" />
       <File FileName="test3/appsettings.json" />
-      <File FileName="test3/Controllers/WeatherForecastController.cs" />
       <File FileName="test3/Properties/launchSettings.json" />
       <File FileName="DAL/Repositories/Interface/IRepositoryBase.cs" />
       <File FileName="DAL/Repositories/Interface/IUnitOfWork.cs" />
@@ -24,12 +22,10 @@
       <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.cs" />
       <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.Designer.cs" />
       <File FileName="test3/Controllers/AccountsController.cs" />
-      <File FileName="BAL/MemberService.cs" />
       <File FileName="DTO/Migrations/20230326100759_RolesSeed.cs" />
       <File FileName="DTO/Migrations/20230326100759_RolesSeed.Designer.cs" />
       <File FileName="BAL/Interfaces/IAccountService.cs" />
-      <File FileName="BAL/AccountService.cs" />
-      <File FileName="BAL/Interfaces/IMemberService.cs" />
+      <File FileName="BAL/AccountService.cs" Line="156" Column="22" />
       <File FileName="BAL/Interfaces/IEmailService.cs" />
       <File FileName="BAL/EmailService.cs" />
       <File FileName="DTO/Models/Request/Email/Message.cs" />
@@ -56,7 +52,24 @@
       <File FileName="DTO/Models/Response/Cart/DeleteCartItemResponse.cs" />
       <File FileName="BAL/Interfaces/IProductService.cs" />
       <File FileName="BAL/ProductService.cs" />
-      <File FileName="DTO/Models/Response/Category/EditCategoryResponse.cs" Line="11" Column="2" />
+      <File FileName="DTO/Models/Response/Category/EditCategoryResponse.cs" />
+      <File FileName="DTO/Models/Response/Product/GetProductByIdResponse.cs" />
+      <File FileName="test3/Controllers/ProductsController.cs" />
+      <File FileName="DTO/Models/Response/Product/CreateProductResponse.cs" />
+      <File FileName="BAL/Interfaces/ICategoryService.cs" />
+      <File FileName="BAL/CategoryService.cs" />
+      <File FileName="test3/Controllers/CategoriesController.cs" />
+      <File FileName="DTO/Models/Response/Product/UpdateProductResponse.cs" />
+      <File FileName="DTO/Models/Response/Product/DeleteProductResponse.cs" />
+      <File FileName="DTO/Models/Response/Cart/AddCartItemResponse.cs" />
+      <File FileName="DTO/Models/Response/Category/CreateCategoryResponse.cs" />
+      <File FileName="DTO/Migrations/20230330153949_Migration2.cs" />
+      <File FileName="DTO/Models/Response/Authentication/SignInResponse.cs" />
+      <File FileName="DTO/Models/Response/Authentication/SignUpRespone.cs" />
+      <File FileName="DTO/Models/Request/Authentication/EditProfileRequest.cs" />
+      <File FileName="DTO/Models/Response/Authentication/EditProfileResponse.cs" />
+      <File FileName="DTO/Models/Response/Authentication/ConfirmEmailResponse.cs" />
+      <File FileName="DTO/Models/Response/Authentication/DeleteUserResponse.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -64,37 +77,38 @@
           <Node name="test3" expanded="True">
             <Node name="BAL" expanded="True">
               <Node name="Interfaces" expanded="True" />
-            </Node>
-            <Node name="DAL" expanded="True">
-              <Node name="Repositories" expanded="True">
-                <Node name="Interface" expanded="True" />
-              </Node>
+              <Node name="AccountService.cs" selected="True" />
             </Node>
             <Node name="DTO" expanded="True">
               <Node name="Entity" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Request" expanded="True">
+                  <Node name="Authentication" expanded="True" />
                   <Node name="Cart" expanded="True" />
                   <Node name="Category" expanded="True" />
+                  <Node name="Product" expanded="True" />
                 </Node>
                 <Node name="Response" expanded="True">
-                  <Node name="Cart" expanded="True" />
-                  <Node name="Category" expanded="True">
-                    <Node name="EditCategoryResponse.cs" selected="True" />
-                  </Node>
+                  <Node name="Authentication" expanded="True" />
                   <Node name="Product" expanded="True" />
                 </Node>
               </Node>
             </Node>
-            <Node name="Shop" expanded="True" />
+            <Node name="Shop" expanded="True">
+              <Node name="Controllers" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Shop PreferredExecutionTarget="/Applications/Brave Browser.app" />
 </Properties>

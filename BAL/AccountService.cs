@@ -8,12 +8,14 @@ using DAL.Interface;
 using DTO.Entity;
 using DTO.Models;
 using DTO.Models.Request.Email;
-using DTO.Models.Respone.Authentication;
+using DTO.Models.Response.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using DTO.Models.Respone.Authentication;
+using DTO.Models.Request.Authentication;
 
 namespace BAL
 {
@@ -35,13 +37,18 @@ namespace BAL
 
         }
 
-        public async Task<string> SignInAsync(SignInModel model)
+        public async Task<SignInResponse> SignInAsync(SignInRequest model)
         {
             var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
             if (!result.Succeeded)
             {
 
-                return string.Empty;
+                return new SignInResponse
+                {
+                    IsSuccess = false,
+                    Message = "Wrong Email or Password"
+
+                };
             }
 
             var authClaims = new List<Claim>
@@ -61,16 +68,21 @@ namespace BAL
                 signingCredentials: new SigningCredentials(authenKey, SecurityAlgorithms.HmacSha256Signature)
 
                 );
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return new SignInResponse
+            {
+                IsSuccess = true,
+                Message = "SignIn SuccessFully"
+
+            }; ;
         }
 
-        public async Task<SignUpRespone> SignUpAsync(SignUpModel model)
+        public async Task<SignUpResponse> SignUpAsync(SignUpRequest model)
         {
             var userExist = await userManager.FindByEmailAsync(model.Email);
 
             if (userExist != null)
             {
-                return new SignUpRespone
+                return new SignUpResponse
                 {
                     Message = "User already exist!",
                     IsSuccess = false
@@ -83,6 +95,7 @@ namespace BAL
                 LastName = model.LastName,
                 Email = model.Email,
                 UserName = model.Email,
+                PhoneNumber = model.PhoneNumber
             };
 
             if (await roleManager.RoleExistsAsync(model.Role))
@@ -90,7 +103,7 @@ namespace BAL
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (!result.Succeeded)
                 {
-                    return new SignUpRespone
+                    return new SignUpResponse
                     {
                         Message = "User Failed to Create",
                         IsSuccess = false
@@ -105,7 +118,7 @@ namespace BAL
                 var message = new Message(new string[] { user.Email! }, "Confirmation Email Link", url);
                 emailService.SendEmail(message);
 
-                return new SignUpRespone
+                return new SignUpResponse
                 {
                     Message = $"User created & Email Sent to {user.Email} SuccessFully",
                     IsSuccess = true
@@ -114,7 +127,7 @@ namespace BAL
             }
             else
             {
-                return new SignUpRespone
+                return new SignUpResponse
                 {
                     Message = "Failed!",
                     IsSuccess = false
@@ -126,8 +139,12 @@ namespace BAL
         public async Task<ConfirmEmailRespone> ConfirmEmail(string token, string email)
         {
 
-            email = email.ToUpper();
-      
+
+
+           // email = userManager.NormalizeEmail(email);
+
+    
+
             var user = await userManager.FindByEmailAsync(email);
             
             if(user != null)
@@ -142,9 +159,93 @@ namespace BAL
                     };
 
                 }
+                else {
+
+                    return new ConfirmEmailRespone
+                    {
+                        IsSuccess = false,
+                        Message = "Failed"
+                    };
+                }
             }
             return new ConfirmEmailRespone { IsSuccess = false, Message = "This User Doesn't Exist" };
         }
+
+        public async Task<EditProfileResponse> EditProfile(string userId, EditProfileRequest request)
+        {
+            if (request == null)
+            {
+                return new EditProfileResponse
+                {
+                    Message = "Request is null!",
+                    IsSuccess = false,
+                };
+            }
+
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return new EditProfileResponse
+                {
+                    Message = "User not found!",
+                    IsSuccess = false,
+                };
+            }
+
+            user.FirstName = request.FirstName;
+            user.LastName = request.LastName;
+            user.PhoneNumber = request.PhoneNumber;
+
+            var result = await userManager.UpdateAsync(user);
+
+            if (result.Succeeded)
+            {
+                return new EditProfileResponse
+                {
+                    Message = "Update profile successfully!",
+                    IsSuccess = true,
+                };
+            }
+
+            return new EditProfileResponse
+            {
+                Message = "Can't update profile!",
+                IsSuccess = false,
+                Errors = result.Errors.Select(e => e.Description)
+            };
+        }
+
+        public async Task<DeleteUserResponse> DeleteUser(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return new DeleteUserResponse
+                {
+                    Message = "User not found!",
+                    IsSuccess = false,
+                };
+            }
+
+            var result = await userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                return new DeleteUserResponse
+                {
+                    Message = "Delete User Successfully!",
+                    IsSuccess = true,
+                };
+            }
+
+            return new DeleteUserResponse
+            {
+                Message = "Can't delete user!",
+                IsSuccess = false,
+                Errors = result.Errors.Select(e => e.Description)
+            };
+
+        }
+
     }
 }
 

@@ -9,7 +9,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Shop" expanded="True">
+          <Node name="Shop" expanded="True" selected="True">
             <Node name="DTO" expanded="True">
               <Node name="Models" expanded="True" />
             </Node>

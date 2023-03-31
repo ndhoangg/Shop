@@ -25,7 +25,7 @@ namespace DAL
             _context.SaveChanges();
         }
 
-        public TEntity GetId(int id)
+        public TEntity GetId(Guid id)
         {
             return _context.Set<TEntity>().Find(id)!;
         }

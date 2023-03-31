@@ -22,6 +22,21 @@ namespace DTO.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CartProduct", b =>
+                {
+                    b.Property<Guid>("CartsCardId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductsProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CartsCardId", "ProductsProductId");
+
+                    b.HasIndex("ProductsProductId");
+
+                    b.ToTable("CartProduct");
+                });
+
             modelBuilder.Entity("CategoryProduct", b =>
                 {
                     b.Property<Guid>("CategoriesCategoryId")
@@ -43,9 +58,6 @@ namespace DTO.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -53,8 +65,6 @@ namespace DTO.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CardId");
-
-                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
 
@@ -298,14 +308,14 @@ namespace DTO.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d3eeafab-66b3-4c68-a09a-4a4dc7e4d1a0",
+                            Id = "9e105225-e37c-445f-98e3-652865104f1b",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "0a51c8bf-07b4-4b8b-b53a-8910186ac6cf",
+                            Id = "4de27414-6d06-46b1-99d4-ee73e0765434",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
@@ -418,6 +428,21 @@ namespace DTO.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CartProduct", b =>
+                {
+                    b.HasOne("DTO.Entity.Cart", null)
+                        .WithMany()
+                        .HasForeignKey("CartsCardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DTO.Entity.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CategoryProduct", b =>
                 {
                     b.HasOne("DTO.Entity.Category", null)
@@ -435,17 +460,10 @@ namespace DTO.Migrations
 
             modelBuilder.Entity("DTO.Entity.Cart", b =>
                 {
-                    b.HasOne("DTO.Entity.Product", "Product")
-                        .WithMany("Carts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("DTO.Entity.User", "User")
                         .WithMany("Carts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });
@@ -552,8 +570,6 @@ namespace DTO.Migrations
 
             modelBuilder.Entity("DTO.Entity.Product", b =>
                 {
-                    b.Navigation("Carts");
-
                     b.Navigation("OrderDetails");
 
                     b.Navigation("Reviews");

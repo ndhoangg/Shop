@@ -34,12 +34,11 @@ namespace BAL
                     Name = request.Name,
                     Description = request.Description,
                     Price = request.Price,
-                    Discount = request.Discount,
                     Brand = request.Brand,
-                    StockQuantity = request.StockQuantity,
+                    Stock = request.Stock,
                     Image = request.Image,
                     Rating = request.Rating,
-                    Categories = request.CategoryIds.Select(cid => _unitOfWork.CategoryRepository.GetId(Guid.Parse(cid))).ToList(),
+                    Categories = request.CategoryIds!.Select(cid => _unitOfWork.CategoryRepository.GetId(Guid.Parse(cid))).ToList(),
                 };
                 _unitOfWork.ProductRepository.AddAsync(product);
                 _unitOfWork.SaveChanges();
@@ -60,6 +59,121 @@ namespace BAL
             }
 
         }
+
+        public UpdateProductResponse UpdateProduct(string productId, UpdateProductRequest request)
+        {
+            if (request == null)
+            {
+                return new UpdateProductResponse
+                {
+                    Message = "Update product request is null!",
+                    IsSuccess = false
+                };
+            }
+
+            var product = _unitOfWork.ProductRepository.GetId(Guid.Parse(productId));
+            if (product == null)
+            {
+                return new UpdateProductResponse
+                {
+                    Message = "Product not found!",
+                    IsSuccess = false
+                };
+            }
+
+            try
+            {
+                product.Name = request.Name;
+                product.Description = request.Description;
+                product.Price = request.Price;
+                product.Brand = request.Brand;
+                product.Stock = request.Stock;
+                product.Image = request.Image;
+                product.Rating = request.Rating;
+                //product.Categories = request.CategoryIds.Select(cid => _unitOfWork.CategoryRepository.GetId(Guid.Parse(cid)));
+                _unitOfWork.ProductRepository.Update(product);
+                _unitOfWork.SaveChanges();
+                return new UpdateProductResponse
+                {
+                    Message = "Update product successfully!",
+                    IsSuccess = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new UpdateProductResponse
+                {
+                    Message = "Can't update product!",
+                    IsSuccess = false,
+                    Error = ex.Message
+                };
+            }
+        }
+
+        public DeleteProductResponse DeleteProduct(string productId)
+        {
+            var product = _unitOfWork.ProductRepository.GetId(Guid.Parse(productId));
+            if (product == null)
+            {
+                return new DeleteProductResponse
+                {
+                    Message = "Product not found!",
+                    IsSuccess = false
+                };
+            }
+
+            try
+            {
+                _unitOfWork.ProductRepository.Remove(product);
+                _unitOfWork.SaveChanges();
+                return new DeleteProductResponse
+                {
+                    Message = "Delete product successfully!",
+                    IsSuccess = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DeleteProductResponse
+                {
+                    Message = "Can't delete product!",
+                    IsSuccess = false,
+                    Error = ex.Message
+                };
+            }
+        }
+
+        public GetProductByIdResponse GetProductById(string productId)
+        {
+            var product = _unitOfWork.ProductRepository.GetId(Guid.Parse(productId));
+            if (product == null)
+            {
+                return new GetProductByIdResponse
+                {
+                    Message = "Product not found!"
+                };
+            }
+
+            return new GetProductByIdResponse
+            {   Message = "Success",
+                Product = new ProductDetailResponse
+                {
+                    ProductId = productId,
+                    Name = product.Name,
+                    Image = product.Image,
+                    Description = product.Description,
+                    Price = product.Price,
+                    Brand = product.Brand,
+                    Stock = product.Stock,
+                    Rating = product.Rating,
+                    //CategoryIds = _unitOfWork.CategoryRepository.GetListCategoriesByProduct(product).Select(category => category.CategoryId.ToString())
+                    CategoryIds = product.Categories != null ? product.Categories.Select(category => category.CategoryId.ToString()) : null
+
+                }
+            };
+        }
+
+
 
     }
 }

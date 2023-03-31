@@ -13,7 +13,7 @@ namespace DAL.Interface
 
         Task AddRangeAsync(IEnumerable<TEntity> objModel);
 
-        TEntity GetId(int id);
+        TEntity GetId(Guid id);
 
         Task<TEntity> GetIdAsync(int id);
 

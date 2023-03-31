@@ -11,7 +11,7 @@ namespace BAL.Interfaces
 
         DeleteProductResponse DeleteProduct(string id);
 
-        GetProductByIdReponse GetProductById(string id);
+        GetProductByIdResponse GetProductById(string id);
     }
 }
 

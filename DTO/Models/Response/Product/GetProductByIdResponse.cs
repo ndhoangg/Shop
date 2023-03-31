@@ -1,10 +1,10 @@
 ﻿using System;
 namespace DTO.Models.Respone.Product
 {
-    public class GetProductByIdReponse
+    public class GetProductByIdResponse
     {
-        public string Message { get; set; } = null!;
-        public ProductDetailResponse? Product { get; set; } 
+        public string? Message { get; set; } 
+        public ProductDetailResponse? Product { get; set; }
     }
 
     public class ProductDetailResponse
@@ -15,10 +15,10 @@ namespace DTO.Models.Respone.Product
         public double? Price { get; set; }
         public double Discount { get; set; }
         public string? Brand { get; set; }
-        public int StockQuantity { get; set; }
+        public int Stock { get; set; }
         public string? Image { get; set; }
         public double Rating { get; set; }
-        public IEnumerable<string> CategoryIds { get; set; } = null!;
+        public IEnumerable<string>? CategoryIds { get; set; }
     }
 
 }
