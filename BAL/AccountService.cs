@@ -114,7 +114,9 @@ namespace BAL
                 
                
                 var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                string url = $"https://localhost:56323/api/Accounts/ConfirmEmail?token={token}&email={user.Email}";
+                var confirmationLink = configuration["ConfirmationLink"];
+                var url = string.Format(confirmationLink!, token, user.Email);
+               // string url = $"https://localhost:56323/api/Accounts/ConfirmEmail?token={token}&email={user.Email}";
                 var message = new Message(new string[] { user.Email! }, "Confirmation Email Link", url);
                 emailService.SendEmail(message);
 
