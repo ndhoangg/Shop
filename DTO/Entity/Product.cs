@@ -33,7 +33,7 @@ namespace DTO.Entity
 
         public virtual IEnumerable<Review>? Reviews { get; set; }
 
-        public virtual IEnumerable<Cart>? Carts { get; set; }
+        public virtual IEnumerable<CartItem>? CartItems { get; set; }
 
 
 

@@ -4,7 +4,7 @@ using DTO.Entity;
 
 namespace DAL.Repositories.Interface
 {
-	public interface ICartRepository : IRepositoryBase<Cart>
+	public interface ICartItemRepository : IRepositoryBase<CartItem>
 	{
         
     }

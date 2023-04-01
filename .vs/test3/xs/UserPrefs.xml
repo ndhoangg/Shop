@@ -1,75 +1,83 @@
 ﻿<Properties StartupConfiguration="{BCA34C06-9506-425E-8130-C61795F1F688}|test3">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="test3/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BAL/CartService.cs">
     <Files>
-      <File FileName="test3/Program.cs" Line="1" Column="1" />
+      <File FileName="test3/Program.cs" Line="43" Column="44" />
       <File FileName="test3/WeatherForecast.cs" />
-      <File FileName="test3/appsettings.json" Line="17" Column="39" />
+      <File FileName="test3/appsettings.json" Line="7" Column="15" />
       <File FileName="test3/Properties/launchSettings.json" />
       <File FileName="DAL/Repositories/Interface/IRepositoryBase.cs" />
-      <File FileName="DAL/Repositories/Interface/IUnitOfWork.cs" />
-      <File FileName="DAL/Repositories/UnitOfWork.cs" />
+      <File FileName="DAL/Repositories/Interface/IUnitOfWork.cs" Line="6" Column="26" />
+      <File FileName="DAL/Repositories/UnitOfWork.cs" Line="19" Column="16" />
       <File FileName="DAL/Repositories/RepositoryBase.cs" />
-      <File FileName="DTO/Entity/MyDbContext.cs" />
+      <File FileName="DTO/Entity/MyDbContext.cs" Line="63" Column="31" />
       <File FileName="../../../../usr/local/share/dotnet/sdk/7.0.202/Microsoft.Common.CurrentVersion.targets" />
-      <File FileName="DTO/Entity/Category.cs" />
-      <File FileName="DTO/Entity/OrderDetail.cs" />
-      <File FileName="DTO/Entity/Product.cs" />
-      <File FileName="DTO/Entity/Cart.cs" />
-      <File FileName="DTO/Entity/Order.cs" />
-      <File FileName="DTO/Entity/Review.cs" />
-      <File FileName="DTO/Entity/User.cs" />
+      <File FileName="DTO/Entity/Category.cs" Line="1" Column="1" />
+      <File FileName="DTO/Entity/OrderDetail.cs" Line="18" Column="44" />
+      <File FileName="DTO/Entity/Product.cs" Line="8" Column="18" />
+      <File FileName="DTO/Entity/Cart.cs" Line="8" Column="15" />
+      <File FileName="DTO/Entity/Order.cs" Line="20" Column="47" />
+      <File FileName="DTO/Entity/Review.cs" Line="18" Column="46" />
+      <File FileName="DTO/Entity/User.cs" Line="15" Column="41" />
       <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.cs" />
       <File FileName="DTO/Migrations/20230324091922_AddIdentityAuthentication.Designer.cs" />
-      <File FileName="test3/Controllers/AccountsController.cs" Line="1" Column="1" />
+      <File FileName="test3/Controllers/AccountsController.cs" Line="106" Column="35" />
       <File FileName="DTO/Migrations/20230326100759_RolesSeed.cs" />
       <File FileName="DTO/Migrations/20230326100759_RolesSeed.Designer.cs" />
-      <File FileName="BAL/Interfaces/IAccountService.cs" />
+      <File FileName="BAL/Interfaces/IAccountService.cs" Line="1" Column="1" />
       <File FileName="BAL/AccountService.cs" Line="123" Column="42" />
       <File FileName="BAL/Interfaces/IEmailService.cs" />
-      <File FileName="BAL/EmailService.cs" />
+      <File FileName="BAL/EmailService.cs" Line="1" Column="1" />
       <File FileName="DTO/Models/Request/Email/Message.cs" />
       <File FileName="DTO/Models/Request/Email/EmailConfiguration.cs" />
       <File FileName="DTO/Models/Request/Email/ConfirmEmailRequest.cs" />
       <File FileName="DTO/Migrations/20230329015003_initialMigration2.cs" />
       <File FileName="DAL/Repositories/Interface/IProductRepository.cs" />
-      <File FileName="DAL/Repositories/Interface/ICartRepository.cs" />
+      <File FileName="DAL/Repositories/Interface/ICartRepository.cs" Line="7" Column="19" />
       <File FileName="DAL/Repositories/Interface/ICategoryRepository.cs" />
-      <File FileName="DAL/Repositories/Interface/IOrder.cs" />
+      <File FileName="DAL/Repositories/Interface/IOrder.cs" Line="1" Column="1" />
       <File FileName="DAL/Repositories/Interface/IOrderDetailRepository.cs" />
       <File FileName="DAL/Repositories/ProductRepository.cs" />
-      <File FileName="DAL/Repositories/CartRepository.cs" />
+      <File FileName="DAL/Repositories/CartRepository.cs" Line="17" Column="5" />
       <File FileName="DAL/Repositories/CategoryRepository.cs" />
       <File FileName="DAL/Repositories/OrderDetailRepository.cs" />
       <File FileName="DAL/Repositories/OrderRepository.cs" />
-      <File FileName="DTO/Models/Request/Product/CreateProductRequest.cs" />
+      <File FileName="DTO/Models/Request/Product/CreateProductRequest.cs" Line="4" Column="15" />
       <File FileName="DTO/Models/Request/Product/UpdateProductRequest.cs" />
       <File FileName="DTO/Models/Request/Category/CreateCategoryRequest.cs" />
       <File FileName="DTO/Models/Request/Category/UpdateCategoryRequest.cs" />
-      <File FileName="DTO/Models/Request/Cart/AddCartItemRequest.cs" />
-      <File FileName="DTO/Models/Request/Cart/UpdateCartItem.cs" />
-      <File FileName="DTO/Models/Response/Cart/UpdateCartItemResponse.cs" />
-      <File FileName="DTO/Models/Response/Cart/DeleteCartItemResponse.cs" />
-      <File FileName="BAL/Interfaces/IProductService.cs" />
-      <File FileName="BAL/ProductService.cs" />
+      <File FileName="DTO/Models/Request/Cart/AddCartItemRequest.cs" Line="4" Column="15" />
+      <File FileName="DTO/Models/Request/Cart/UpdateCartItem.cs" Line="4" Column="15" />
+      <File FileName="DTO/Models/Response/Cart/UpdateCartItemResponse.cs" Line="4" Column="15" />
+      <File FileName="DTO/Models/Response/Cart/DeleteCartItemResponse.cs" Line="1" Column="1" />
+      <File FileName="BAL/Interfaces/IProductService.cs" Line="15" Column="28" />
+      <File FileName="BAL/ProductService.cs" Line="19" Column="68" />
       <File FileName="DTO/Models/Response/Category/EditCategoryResponse.cs" />
       <File FileName="DTO/Models/Response/Product/GetProductByIdResponse.cs" />
-      <File FileName="test3/Controllers/ProductsController.cs" />
+      <File FileName="test3/Controllers/ProductsController.cs" Line="35" Column="10" />
       <File FileName="DTO/Models/Response/Product/CreateProductResponse.cs" />
-      <File FileName="BAL/Interfaces/ICategoryService.cs" />
-      <File FileName="BAL/CategoryService.cs" />
-      <File FileName="test3/Controllers/CategoriesController.cs" />
+      <File FileName="BAL/Interfaces/ICategoryService.cs" Line="1" Column="1" />
+      <File FileName="BAL/CategoryService.cs" Line="1" Column="1" />
+      <File FileName="test3/Controllers/CategoriesController.cs" Line="1" Column="1" />
       <File FileName="DTO/Models/Response/Product/UpdateProductResponse.cs" />
       <File FileName="DTO/Models/Response/Product/DeleteProductResponse.cs" />
-      <File FileName="DTO/Models/Response/Cart/AddCartItemResponse.cs" />
+      <File FileName="DTO/Models/Response/Cart/AddCartItemResponse.cs" Line="4" Column="19" />
       <File FileName="DTO/Models/Response/Category/CreateCategoryResponse.cs" />
       <File FileName="DTO/Migrations/20230330153949_Migration2.cs" />
       <File FileName="DTO/Models/Response/Authentication/SignInResponse.cs" />
       <File FileName="DTO/Models/Response/Authentication/SignUpRespone.cs" />
-      <File FileName="DTO/Models/Request/Authentication/EditProfileRequest.cs" />
-      <File FileName="DTO/Models/Response/Authentication/EditProfileResponse.cs" />
+      <File FileName="DTO/Models/Request/Authentication/EditProfileRequest.cs" Line="19" Column="1" />
+      <File FileName="DTO/Models/Response/Authentication/EditProfileResponse.cs" Line="1" Column="1" />
       <File FileName="DTO/Models/Response/Authentication/ConfirmEmailResponse.cs" />
       <File FileName="DTO/Models/Response/Authentication/DeleteUserResponse.cs" />
+      <File FileName="BAL/ProductService (copy).cs" Line="175" Column="12" />
+      <File FileName="BAL/Interfaces/ICartService.cs" Line="13" Column="1" />
+      <File FileName="DTO/Migrations/20230401112009_Migration3.cs" Line="1" Column="1" />
+      <File FileName="DTO/Models/Response/CartItem/AddCartItemResponse (copy).cs" Line="6" Column="49" />
+      <File FileName="DTO/Migrations/20230401144512_Migration4.cs" Line="14" Column="70" />
+      <File FileName="DTO/Migrations/20230401145842_MyMigration1.cs" Line="20" Column="1" />
+      <File FileName="DTO/Migrations/20230401150031_MyMigration1.cs" Line="14" Column="1" />
+      <File FileName="test3/Controllers/CartsController.cs" Line="68" Column="67" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -77,9 +85,16 @@
           <Node name="test3" expanded="True">
             <Node name="BAL" expanded="True">
               <Node name="Interfaces" expanded="True" />
+              <Node name="CartService.cs" selected="True" />
+            </Node>
+            <Node name="DAL" expanded="True">
+              <Node name="Repositories" expanded="True">
+                <Node name="Interface" expanded="True" />
+              </Node>
             </Node>
             <Node name="DTO" expanded="True">
               <Node name="Entity" expanded="True" />
+              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Request" expanded="True">
                   <Node name="Authentication" expanded="True" />
@@ -89,13 +104,12 @@
                 </Node>
                 <Node name="Response" expanded="True">
                   <Node name="Authentication" expanded="True" />
-                  <Node name="Product" expanded="True" />
+                  <Node name="CartItem" expanded="True" />
                 </Node>
               </Node>
             </Node>
             <Node name="Shop" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="appsettings.json" selected="True" />
             </Node>
           </Node>
         </State>

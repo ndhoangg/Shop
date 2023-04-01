@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories
 {
-	public class CartRepository : RepositoryBase<Cart>,ICartRepository
+	public class CartRepository : RepositoryBase<CartItem>,ICartItemRepository
 	
     {
 		public CartRepository(DbContext context) : base(context) { }
@@ -14,3 +14,4 @@ namespace DAL.Repositories
     }
 }
 
+    

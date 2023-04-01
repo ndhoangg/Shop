@@ -13,7 +13,7 @@ namespace DAL
         private ICategoryRepository _categoryRepository;
         private IOrderRepository _orderRepository;
         private IOrderDetailRepository _orderDetailRepository;
-        private ICartRepository _cartRepository;
+        private ICartItemRepository _cartItemRepository;
 
 
         public UnitOfWork(DbContext context)
@@ -61,15 +61,15 @@ namespace DAL
             }
         }
 
-        public ICartRepository CartRepository
+        public ICartItemRepository CartItemRepository
         {
             get
             {
-                if (_cartRepository == null)
+                if (_cartItemRepository == null)
                 {
-                    _cartRepository = new CartRepository(_context);
+                    _cartItemRepository = new CartRepository(_context);
                 }
-                return _cartRepository;
+                return _cartItemRepository;
             }
         }
 

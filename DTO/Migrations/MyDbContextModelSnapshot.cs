@@ -22,21 +22,6 @@ namespace DTO.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CartProduct", b =>
-                {
-                    b.Property<Guid>("CartsCardId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ProductsProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CartsCardId", "ProductsProductId");
-
-                    b.HasIndex("ProductsProductId");
-
-                    b.ToTable("CartProduct");
-                });
-
             modelBuilder.Entity("CategoryProduct", b =>
                 {
                     b.Property<Guid>("CategoriesCategoryId")
@@ -52,23 +37,29 @@ namespace DTO.Migrations
                     b.ToTable("CategoryProduct");
                 });
 
-            modelBuilder.Entity("DTO.Entity.Cart", b =>
+            modelBuilder.Entity("DTO.Entity.CartItem", b =>
                 {
-                    b.Property<Guid>("CardId")
+                    b.Property<Guid>("CardItemId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("CardId");
+                    b.HasKey("CardItemId");
+
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Cart");
+                    b.ToTable("CartItem");
                 });
 
             modelBuilder.Entity("DTO.Entity.Category", b =>
@@ -107,6 +98,7 @@ namespace DTO.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("OrderId");
@@ -122,20 +114,17 @@ namespace DTO.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("OrderId")
+                    b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
-
-                    b.Property<double>("price")
-                        .HasColumnType("float");
 
                     b.HasKey("OrderDetailId");
 
@@ -191,10 +180,11 @@ namespace DTO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ReviewId");
@@ -308,14 +298,14 @@ namespace DTO.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9e105225-e37c-445f-98e3-652865104f1b",
+                            Id = "ada8db22-3b7f-4da5-b5d4-48de8e62e632",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "4de27414-6d06-46b1-99d4-ee73e0765434",
+                            Id = "ad315699-7f22-4df1-ae79-2660633f3207",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
@@ -428,21 +418,6 @@ namespace DTO.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("CartProduct", b =>
-                {
-                    b.HasOne("DTO.Entity.Cart", null)
-                        .WithMany()
-                        .HasForeignKey("CartsCardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DTO.Entity.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("CategoryProduct", b =>
                 {
                     b.HasOne("DTO.Entity.Category", null)
@@ -458,12 +433,21 @@ namespace DTO.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DTO.Entity.Cart", b =>
+            modelBuilder.Entity("DTO.Entity.CartItem", b =>
                 {
+                    b.HasOne("DTO.Entity.Product", "Product")
+                        .WithMany("CartItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DTO.Entity.User", "User")
-                        .WithMany("Carts")
+                        .WithMany("CartItems")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });
@@ -471,9 +455,10 @@ namespace DTO.Migrations
             modelBuilder.Entity("DTO.Entity.Order", b =>
                 {
                     b.HasOne("DTO.Entity.User", "User")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -483,12 +468,14 @@ namespace DTO.Migrations
                     b.HasOne("DTO.Entity.Order", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DTO.Entity.Product", "Product")
                         .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Order");
 
@@ -500,12 +487,14 @@ namespace DTO.Migrations
                     b.HasOne("DTO.Entity.Product", "Product")
                         .WithMany("Reviews")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DTO.Entity.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
 
@@ -570,6 +559,8 @@ namespace DTO.Migrations
 
             modelBuilder.Entity("DTO.Entity.Product", b =>
                 {
+                    b.Navigation("CartItems");
+
                     b.Navigation("OrderDetails");
 
                     b.Navigation("Reviews");
@@ -577,7 +568,9 @@ namespace DTO.Migrations
 
             modelBuilder.Entity("DTO.Entity.User", b =>
                 {
-                    b.Navigation("Carts");
+                    b.Navigation("CartItems");
+
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

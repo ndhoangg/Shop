@@ -39,7 +39,8 @@ builder.Services.AddScoped<IUrlHelper>(x => {
 //builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>(); 
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICartService, CartService>();
 //builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 //builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

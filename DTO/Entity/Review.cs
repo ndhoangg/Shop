@@ -15,6 +15,10 @@ namespace DTO.Entity
 		[MaxLength(255)]
 		public string? Content { get; set; }
 
+		public string UserId { get; set; } = null!;
+
+		public Guid ProductId { get; set; }
+
 		public virtual User? User { get; set; }
 
 		public virtual Product? Product { get; set; }

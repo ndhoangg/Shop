@@ -12,7 +12,7 @@ namespace DTO.Models.Request.Authentication
         public string LastName { get; set; } = null!;
 
         [Required]
-        public string PhoneNumber { get; set; } = null;
+        public string PhoneNumber { get; set; } = null!;
     }
 }
 

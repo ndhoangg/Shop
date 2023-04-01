@@ -12,7 +12,8 @@ namespace DTO.Entity
         //public string Address { get; set; } = null!;
         //public string Phone { get; set; } = null!;
 
-        public virtual IEnumerable<Cart>? Carts { get; set; }
+        public virtual IEnumerable<CartItem>? CartItems { get; set; } 
+        public virtual IEnumerable<Order> Orders { get; set; } = null!;
     }
 }
 

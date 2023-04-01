@@ -19,7 +19,9 @@ namespace DTO.Entity
 
         public double TotalMoney { get; set; }
 
-        public virtual User? User { get; set; }
+		public string UserId { get; set; } = null!;
+
+		public virtual User User { get; set; } = null!;
 
 		public virtual IEnumerable<OrderDetail>? OrderDetails { get; set; }
 

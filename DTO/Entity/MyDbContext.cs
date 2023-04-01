@@ -13,7 +13,7 @@ namespace DTO.Entity
 
         }
 
-        public DbSet<Cart>? Carts { get; set; }
+        public DbSet<CartItem>? CartItems { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
@@ -61,7 +61,7 @@ namespace DTO.Entity
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasOne(o => o.User)
-                    .WithMany()
+                    .WithMany(u => u.Orders)
                     .HasForeignKey("UserId")
                     .OnDelete(DeleteBehavior.Cascade);
             });
@@ -79,16 +79,18 @@ namespace DTO.Entity
                     .OnDelete(DeleteBehavior.Cascade);
             });
 
-            modelBuilder.Entity<Cart>(entity =>
+            modelBuilder.Entity<CartItem>(entity =>
             {
                 entity.HasOne(c => c.User)
-                    .WithMany(u => u.Carts)
+                    .WithMany(u => u.CartItems)
                     .HasForeignKey("UserId")
                     .OnDelete(DeleteBehavior.Cascade);
 
-                entity.HasMany(c => c.Products)
-                    .WithMany(p => p.Carts);
-                  
+                entity.HasOne(c => c.Product)
+                    .WithMany(p => p.CartItems)
+                    .HasForeignKey("ProductId")
+                    .OnDelete(DeleteBehavior.Cascade);
+
             });
         }
 

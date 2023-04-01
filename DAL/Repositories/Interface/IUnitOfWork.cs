@@ -13,7 +13,7 @@ namespace DAL.Interface
 
         IOrderRepository OrderRepository { get; }
 
-        ICartRepository CartRepository { get; }
+        ICartItemRepository CartItemRepository { get; }
 
         void SaveChanges();
 	}
